@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Me Valentine</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    width: 350px;
+}
+
+h1 {
+    margin-top: 0;
+    color: #4CAF50;
+}
+
+.question {
+    font-size: 22px;
+    margin: 20px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.yes-btn {
+    background-color: #ff4da6;
+    color: white;
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+}
+
+.no-btn {
+    background-color: #ffb6d9;
+    color: white;
+    position: relative;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Love Me Valentine</h1>
+    <div class="question">Do you love me? 💕</div>
+    <div class="buttons">
+        <button class="yes-btn" onclick="sayYes()">Yes</button>
+        <button class="no-btn" id="noBtn">No</button>
+    </div>
+</div>
+
+<script>
+function sayYes() {
+    document.querySelector(".question").innerHTML = "Yayyy!! I love you too 💖🥰";
+}
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", function() {
+    const container = document.querySelector(".container");
+    const maxX = container.clientWidth - noBtn.offsetWidth;
+    const maxY = container.clientHeight - noBtn.offsetHeight;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+});
+</script>
+
+</body>
+</html>
